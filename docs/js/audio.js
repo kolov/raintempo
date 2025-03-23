@@ -21,7 +21,7 @@ async function loadRainSound() {
             await audioContext.resume();
         }
         
-        const response = await fetch('/assets/light-rain-109591.mp3');
+        const response = await fetch('../assets/light-rain-109591.mp3');
         const arrayBuffer = await response.arrayBuffer();
         rainBuffer = await audioContext.decodeAudioData(arrayBuffer);
     } catch (error) {
