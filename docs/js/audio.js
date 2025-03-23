@@ -12,7 +12,19 @@ async function loadRainSound() {
     if (rainBuffer) return; // Already loaded
     
     try {
-        const response = await fetch('assets/light-rain-109591.mp3');
+        // Ensure audio context exists
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        // Resume audio context if it's suspended
+        if (audioContext.state === 'suspended') {
+            await audioContext.resume();
+        }
+        
+        // Get current script path and go up to root
+        const currentPath = window.location.pathname;
+
+        const response = await fetch(`${currentPath}assets/light-rain-109591.mp3`);
         const arrayBuffer = await response.arrayBuffer();
         rainBuffer = await audioContext.decodeAudioData(arrayBuffer);
     } catch (error) {
