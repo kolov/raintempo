@@ -21,7 +21,11 @@ async function loadRainSound() {
             await audioContext.resume();
         }
         
-        const response = await fetch('../assets/light-rain-109591.mp3');
+        // Get current script path and go up to root
+        const currentPath = window.location.pathname;
+        const rootPath = currentPath.substring(0, currentPath.lastIndexOf('/js/'));
+        
+        const response = await fetch(`${rootPath}/assets/light-rain-109591.mp3`);
         const arrayBuffer = await response.arrayBuffer();
         rainBuffer = await audioContext.decodeAudioData(arrayBuffer);
     } catch (error) {
