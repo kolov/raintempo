@@ -24,6 +24,7 @@ async function loadRainSound() {
         // Get current script path and go up to root
         const currentPath = window.location.pathname;
         const rootPath = currentPath.substring(0, currentPath.lastIndexOf('/js/'));
+        console.log(rootPath);
         
         const response = await fetch(`${rootPath}/assets/light-rain-109591.mp3`);
         const arrayBuffer = await response.arrayBuffer();
