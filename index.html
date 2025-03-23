@@ -4,58 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metronome with Rain</title>
-    <style>
-        .control-group {
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        label {
-            min-width: 150px;
-        }
-        input[type="range"] {
-            width: 200px;
-        }
-        output {
-            min-width: 40px;
-        }
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-        .instructions {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f5f5f5;
-            border-radius: 5px;
-        }
-        /* Hide the audio element */
-        #rainAudio {
-            display: none;
-        }
-    </style>
-    <script>
-        // Initialize default values
-        let speed = 60;
-        let backgroundSound = true;
-        let backgroundVolume = 50;
-
-        // Update functions
-        function updateSpeed(value) {
-            speed = parseInt(value);
-        }
-        
-        function updateBackgroundSound(checked) {
-            backgroundSound = checked;
-        }
-        
-        function updateVolume(value) {
-            backgroundVolume = parseInt(value);
-        }
-    </script>
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="src/css/styles.css">
 </head>
 <body>
     <header>
@@ -100,11 +49,13 @@
 
         <!-- Preload the rain sound -->
         <audio id="rainAudio" preload="auto">
-            <source src="rain.mp3" type="audio/mpeg">
+            <source src="assets/rain.mp3" type="audio/mpeg">
         </audio>
     </main>
     <footer>
     </footer>
+    <script src="src/js/audio.js"></script>
+    <script src="src/js/main.js"></script>
 </body>
 </html>
 
