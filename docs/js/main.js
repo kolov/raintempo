@@ -62,12 +62,12 @@ function scheduler() {
     timerID = window.setTimeout(scheduler, lookahead);
 }
 
-function play() {
+async function play() {
     if (isPlaying) return;
 
     if (audioContext === null) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        loadRainSound();
+        await loadRainSound();
     }
 
     isPlaying = true;
